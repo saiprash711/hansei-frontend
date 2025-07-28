@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hansei - Enhanced Sales Intelligence Dashboard</title>
     
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://daikin-n9wy.onrender.com http://localhost:3000; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://storage.googleapis.com data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://hansei-backend.onrender.com http://localhost:3000; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://storage.googleapis.com data:;">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -691,7 +691,7 @@
     // This logic now correctly identifies when the app is running locally,
     // whether from a server (`localhost`) or directly as a file (`file:///`).
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-    const API_BASE_URL = isLocal ? 'http://localhost:3000/api' : 'https://daikin-n9wy.onrender.com/api';
+    const API_BASE_URL = isLocal ? 'http://localhost:3000/api' : 'https://hansei-backend.onrender.com/api';
     console.log(`Environment detected as: ${isLocal ? 'Local' : 'Deployed'}. Connecting to API at: ${API_BASE_URL}`);
     
     let appState = { currentUser: null, isAuthenticated: false };
