@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hansei - Enhanced Sales Intelligence Dashboard</title>
     
-    <!-- UPDATED: Content Security Policy to allow connections to your deployed backend -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://daikin-n9wy.onrender.com; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://storage.googleapis.com data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://daikin-n9wy.onrender.com http://localhost:3000; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://storage.googleapis.com data:;">
 
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -369,7 +366,6 @@
 </head>
 <body class="text-slate-300">
 
-    <!-- ADDED: Connection Status Indicator -->
     <div id="connectionStatus" class="connection-status connecting">
         <span id="connectionText">Connecting...</span>
     </div>
@@ -380,11 +376,10 @@
         <div class="bg-circle"></div>
     </div>
 
-    <!-- Step 1: Simplified Login Screen -->
     <div id="loginScreen" class="screen min-h-screen w-full flex items-center justify-center p-4">
         <div class="w-full max-w-md bg-slate-900/50 backdrop-blur-xl border border-slate-700 rounded-2xl p-8 shadow-2xl shadow-indigo-500/10">
             <div class="text-center mb-8">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAC0CAYAAAD32+3IAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAA3NCSVQICAjb4U/gAAAIlklEQVR4nO3d34tdRRjA8VfSlLSLpLgIuuhCF258gS4q6opgQ3BRRBAR3PgD3LgQUdCFIC7cqKhbFxEE3QR3FkHwD+xDCFGKjYhNbR7O/M5759yZSU5ycnLvnN8Xgsy8N/u9d9/MvDPJSSGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIY-Q==" alt="Hansei Consultancy Logo" class="mx-auto mb-4 w-48">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAC0CAYAAAD32+3IAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAA3NCSVQICAjb4U/gAAAIlklEQVR4nO3d34tdRRjA8VfSlLSLpLgIuuhCF258gS4q6opgQ3BRRBAR3PgD3LgQUdCFIC7cqKhbFxEE3QR3FkHwD+xDCFGKjYhNbR7O/M5759yZSU5ycnLvnN8Xgsy8N/u9d9/MvDPJSSGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEE" alt="Hansei Consultancy Logo" class="mx-auto mb-4 w-48">
                 <h1 class="text-3xl font-bold text-white">Hansei Intelligence Portal</h1>
                 <p class="text-slate-400 mt-2">Securely access your sales analytics dashboard.</p>
             </div>
@@ -401,7 +396,6 @@
                     </div>
                 </div>
                 
-                <!-- HONEYPOT FIELD: This is a trap for bots. It's hidden from users. -->
                 <div class="honey_pot_field">
                     <label for="honey_pot">Do not fill this field</label>
                     <input type="text" id="honey_pot" name="honey_pot" tabindex="-1" autocomplete="off">
@@ -412,15 +406,12 @@
         </div>
     </div>
 
-    <!-- Step 2: Main Dashboard Application -->
     <div id="mainApp" class="screen"><div class="flex h-screen bg-slate-900/80">
-        <!-- Sidebar / Navigation -->
         <nav class="w-64 bg-slate-900/70 backdrop-blur-lg border-r border-slate-800 flex flex-col">
             <div class="flex items-center justify-center px-6 h-20 border-b border-slate-800">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAC0CAYAAAD32+3IAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAA3NCSVQICAjb4U/gAAAIlklEQVR4nO3d34tdRRjA8VfSlLSLpLgIuuhCF258gS4q6opgQ3BRRBAR3PgD3LgQUdCFIC7cqKhbFxEE3QR3FkHwD+xDCFGKjYhNbR7O/M5759yZSU5ycnLvnN8Xgsy8N/u9d9/MvDPJSSGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIY-Q==" alt="Hansei Consultancy Logo" class="w-32">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAC0CAYAAAD32+3IAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAA3NCSVQICAjb4U/gAAAIlklEQVR4nO3d34tdRRjA8VfSlLSLpLgIuuhCF258gS4q6opgQ3BRRBAR3PgD3LgQUdCFIC7cqKhbFxEE3QR3FkHwD+xDCFGKjYhNbR7O/M5759yZSU5ycnLvnN8Xgsy8N/u9d9/MvDPJSSGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEE" alt="Hansei Consultancy Logo" class="w-32">
             </div>
 
-            <!-- Navigation items -->
             <div class="flex-grow p-4 space-y-2">
                 <a href="#" class="nav-item active" data-screen="dashboard"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg><span>South Region</span></a>
                 <a href="#" class="nav-item" data-screen="billingVelocity"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>Billing Velocity</span></a>
@@ -450,9 +441,7 @@
                 </div>
             </div>
         </nav>
-        <!-- Main Content Area -->
         <main class="flex-1 overflow-y-auto">
-            <!-- Dashboard Content -->
             <div id="dashboardContent" class="app-content p-8">
                 <h2 class="text-3xl font-bold text-white mb-2">South Region Dashboard</h2>
                 <p id="currentSelection" class="text-slate-400 mb-8">Availability Situation For: South Region (All Models, All Technologies)</p>
@@ -463,12 +452,10 @@
                 </div>
                 <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6"><h3 class="text-xl font-bold text-white mb-2">Comprehensive Product Matrix</h3><p class="text-sm text-slate-400 mb-4" id="tableSubtitle">Real-time supply chain data with weekly plans and stock analysis</p><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-400"><thead class="text-xs text-slate-300 uppercase bg-slate-800"><tr><th scope="col" class="px-4 py-3">Product</th><th scope="col" class="px-4 py-3 text-center">Op. Stock</th><th scope="col" class="px-4 py-3 text-center">Avl. Stock</th><th scope="col" class="px-4 py-3 text-center">Transit</th><th scope="col" class="px-4 py-3 text-center">Billing</th><th scope="col" class="px-4 py-3 text-center">Month Plan</th><th scope="col" class="px-4 py-3 text-center">Avail %</th><th scope="col" class="px-4 py-3 text-center">Status</th></tr></thead><tbody id="productTableBody"></tbody><tfoot class="font-semibold text-white bg-slate-800"><tr class="border-t-2 border-slate-700"><th scope="row" id="totalTitle" class="px-4 py-3 text-base">South Region Total</th><td class="px-4 py-3 text-center" id="totalOpStock">-</td><td class="px-4 py-3 text-center" id="totalStock">-</td><td class="px-4 py-3 text-center" id="totalTransit">-</td><td class="px-4 py-3 text-center" id="totalBilling">-</td><td class="px-4 py-3 text-center" id="totalMonthPlan">-</td><td class="px-4 py-3 text-center" id="avgAvailability">-</td><td class="px-4 py-3 text-center"><span class="px-2 py-1 text-xs rounded-full bg-green-500 text-white">ACTIVE</span></td></tr></tfoot></table></div></div>
                 
-                <!-- Integrated Summary Table Section -->
                 <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6">
                     <h3 id="summaryTableTitle" class="text-xl font-bold text-white mb-4">Detailed Stock & Planning Summary</h3>
                     <div id="summaryKpiGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-6">
-                        <!-- Summary KPIs will be injected here -->
-                    </div>
+                        </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left text-slate-400">
                             <thead class="text-xs text-slate-300 uppercase bg-slate-800">
@@ -487,14 +474,12 @@
                                 </tr>
                             </thead>
                             <tbody id="southRegionSummaryTableBody">
-                                <!-- Summary data will be injected here -->
-                            </tbody>
+                                </tbody>
                         </table>
                     </div>
                 </div>
             </div>
 
-            <!-- Billing Velocity Content -->
             <div id="billingVelocityContent" class="app-content p-8" style="display: none;">
                 <h2 class="text-3xl font-bold text-white mb-6">Billing Velocity Analysis</h2>
                 <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6">
@@ -518,7 +503,6 @@
                 </div>
             </div>
 
-            <!-- South Coverage Content -->
             <div id="coverageContent" class="app-content p-8" style="display: none;">
                 <h2 class="text-3xl font-bold text-white mb-8">South Coverage Analysis</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -533,7 +517,6 @@
                 </div>
             </div>
 
-            <!-- Product Analytics Content -->
             <div id="modelsContent" class="app-content p-8" style="display: none;">
                 <div id="models-analytics-container">
                     <h2 class="text-3xl font-bold text-white mb-8">Product Analytics Deep Dive</h2>
@@ -547,32 +530,31 @@
                     <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
                         <div class="lg:col-span-3">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6"><h3 class="text-xl font-bold text-white mb-4">Stock by Tonnage</h3><div class="relative h-72"><canvas id="tonnageChart"></canvas></div></div>
-                                <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6"><h3 class="text-xl font-bold text-white mb-4">Stock by Star Rating</h3><div class="relative h-72"><canvas id="starRatingChart"></canvas></div></div>
+                                <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6"><h3 class="text-xl font-bold text-white mb-4">Stock by Tonnage</h3><div id="tonnageChartContainer" class="relative h-72"><canvas id="tonnageChart"></canvas></div></div>
+                                <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6"><h3 class="text-xl font-bold text-white mb-4">Stock by Star Rating</h3><div id="starRatingChartContainer" class="relative h-72"><canvas id="starRatingChart"></canvas></div></div>
                             </div>
-                            <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6"><h3 class="text-xl font-bold text-white mb-4">Top 10 Products (by Sales Qty.)</h3><div class="relative h-80"><canvas id="topModelsChart"></canvas></div></div>
+                            <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6"><h3 class="text-xl font-bold text-white mb-4">Top 10 Products (by Sales Qty.)</h3><div id="topModelsChartContainer" class="relative h-80"><canvas id="topModelsChart"></canvas></div></div>
                         </div>
                         <div class="lg:col-span-2">
-                             <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-6"><h3 class="text-xl font-bold text-white mb-4">Stock by Technology</h3><div class="relative h-48"><canvas id="technologyChart"></canvas></div></div>
+                             <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-6"><h3 class="text-xl font-bold text-white mb-4">Stock by Technology</h3><div id="technologyChartContainer" class="relative h-48"><canvas id="technologyChart"></canvas></div></div>
                              <div class="analytics-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 h-auto">
                                 <h3 class="text-xl font-bold text-white mb-4">Dynamic Insights</h3>
-                                <ul id="modelInsightsList" class="space-y-4 text-sm"></ul>
+                                <div id="modelInsightsContainer">
+                                    <ul id="modelInsightsList" class="space-y-4 text-sm"></ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Planning Content -->
             <div id="planningContent" class="app-content p-8" style="display: none;">
                 <h2 class="text-3xl font-bold text-white mb-6">Planning & Execution Analysis</h2>
                 <div id="planningNarrative" class="analytics-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-8">
-                    <!-- Narrative will be injected here by JS -->
-                </div>
+                    </div>
                 <h3 class="text-2xl font-bold text-white mb-4">Recommended Planning Actions</h3>
                 <div id="planningDecisions" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                    <!-- Decision cards will be injected here by JS -->
-                </div>
+                    </div>
                 <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6">
                     <h3 class="text-xl font-bold text-white mb-4">Branch Plan vs. Actuals Breakdown</h3>
                     <div class="overflow-x-auto">
@@ -591,7 +573,6 @@
                 </div>
             </div>
 
-            <!-- Hansei Analytics Content -->
             <div id="analyticsContent" class="app-content p-8" style="display: none;">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-bold text-white">Hansei Analytics Hub</h2>
@@ -603,7 +584,6 @@
                     <div class="analytics-sub-nav-item" data-page="trends">Performance Trends</div>
                 </div>
 
-                <!-- Page 1: Executive Overview & Decisions -->
                 <div id="analyticsPage-overview" class="analytics-page" style="display: block;">
                     <div class="analytics-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-8">
                         <h3 class="text-xl font-bold text-white mb-3">South Region Performance Summary</h3>
@@ -612,19 +592,15 @@
                     
                     <h3 class="text-2xl font-bold text-white mb-4">Key Business Decisions Recommended by Hansei</h3>
                     <div id="actionableDecisions" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                        <!-- Actionable decision cards will be injected here -->
-                    </div>
+                        </div>
                     
                     <div id="analyticsKpiGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <!-- KPIs will be injected here by JS -->
-                    </div>
+                        </div>
                 </div>
 
-                <!-- Page 2: Data Deep Dive -->
                 <div id="analyticsPage-deepdive" class="analytics-page">
                      <div id="deepDiveNarrative" class="analytics-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-8">
-                        <!-- Narrative for deep dive will be injected here -->
-                     </div>
+                        </div>
                      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                         <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6">
                             <h3 class="text-xl font-bold text-white mb-4">Top 10 Performing Models (by Sales)</h3>
@@ -661,7 +637,6 @@
                     </div>
                 </div>
 
-                <!-- Page 3: Performance Trends -->
                 <div id="analyticsPage-trends" class="analytics-page">
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div class="lg:col-span-2 chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6">
@@ -669,8 +644,7 @@
                             <div class="relative h-[450px]"><canvas id="monthlyTrendsChart"></canvas></div>
                         </div>
                         <div id="trendsNarrative" class="analytics-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6">
-                             <!-- Narrative for trends will be injected here -->
-                        </div>
+                             </div>
                     </div>
                 </div>
             </div>
@@ -692,10 +666,8 @@
         </main>
     </div></div>
 
-    <!-- Notification -->
     <div id="notification" class="fixed top-5 right-5 bg-slate-800 text-white py-3 px-5 rounded-lg shadow-lg border border-slate-700 transform translate-x-[120%] transition-transform duration-500 z-50"></div>
 
-    <!-- CHATBOT -->
     <div id="chatbot-container">
         <div id="chatbot-window">
             <div id="chatbot-header"><h3 class="text-lg font-bold text-white">Hansei AI Assistant</h3><p class="text-sm text-slate-400">Ask me about the data!</p></div>
@@ -707,15 +679,21 @@
 
     <script>
     // ============================================================================
-    // SCRIPT: HANSEI SALES INTELLIGENCE DASHBOARD - DEPLOYED VERSION
+    // SCRIPT: HANSEI SALES INTELLIGENCE DASHBOARD
     // ============================================================================
     console.log('🔐 Hansei Full-Stack Analytics Platform Loading...');
 
     // ============================================================================
     // GLOBAL STATE & CONFIG
     // ============================================================================
-    // UPDATED: Changed API_BASE_URL to use your deployed backend
-    const API_BASE_URL = 'https://daikin-n9wy.onrender.com/api';
+    
+    // --- FINAL FIX: Robust Local Environment Detection ---
+    // This logic now correctly identifies when the app is running locally,
+    // whether from a server (`localhost`) or directly as a file (`file:///`).
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
+    const API_BASE_URL = isLocal ? 'http://localhost:3000/api' : 'https://daikin-n9wy.onrender.com/api';
+    console.log(`Environment detected as: ${isLocal ? 'Local' : 'Deployed'}. Connecting to API at: ${API_BASE_URL}`);
+    
     let appState = { currentUser: null, isAuthenticated: false };
     let chartInstances = {};
     let filteredProductsForExport = []; // To hold data for export
@@ -751,7 +729,6 @@
             const token = localStorage.getItem('token');
             const defaultOptions = { 
                 headers: { 'Content-Type': 'application/json' },
-                // ADDED: Better timeout handling for deployed backend
                 signal: AbortSignal.timeout(30000) // 30 second timeout
             };
             if (token) {
@@ -774,7 +751,6 @@
                 if (response.status === 401) { 
                     secureLogout(); 
                 }
-                // More descriptive error handling
                 throw new Error(data.error || `API Error: ${response.status} ${response.statusText}`);
             }
             console.log(`✅ API call successful to ${endpoint}:`, data);
@@ -827,7 +803,7 @@
                 initializeDashboard();
             }
         } catch (error) { 
-            updateConnectionStatus('disconnected', 'Connection Failed');
+            updateConnectionStatus('disconnected', 'Login Failed');
         }
     }
 
@@ -1228,85 +1204,113 @@
         }
     }
 
+    // ============================================================================
+    // --- FIX: Rewritten Product Analytics Functions for Efficiency and Accuracy ---
+    // ============================================================================
+
     async function buildModelsPage() {
-        setComponentLoading('models-analytics-container');
         try {
+            if (document.getElementById('starSelect').hasAttribute('data-listener-added')) {
+                await updateModelsAnalysis();
+                return;
+            }
+
+            setComponentLoading('models-analytics-container');
             const response = await apiCall('/sales/product-analytics');
+            document.getElementById('models-analytics-container').innerHTML = `
+                <h2 class="text-3xl font-bold text-white mb-8">Product Analytics Deep Dive</h2>
+                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-6 grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                    <div><label for="starSelect" class="block text-sm font-medium text-slate-300 mb-2">Star Rating</label><select id="starSelect" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"></select></div>
+                    <div><label for="technologySelect" class="block text-sm font-medium text-slate-300 mb-2">Technology</label><select id="technologySelect" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"></select></div>
+                    <div><label for="tonnageSelect" class="block text-sm font-medium text-slate-300 mb-2">Tonnage</label><select id="tonnageSelect" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white"></select></div>
+                    <button class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2 px-4 rounded-lg" onclick="exportModelsData()">Export Data</button>
+                </div>
+                <div id="modelsKpiGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                    <div class="lg:col-span-3">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6"><h3 class="text-xl font-bold text-white mb-4">Stock by Tonnage</h3><div id="tonnageChartContainer" class="relative h-72"></div></div>
+                            <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6"><h3 class="text-xl font-bold text-white mb-4">Stock by Star Rating</h3><div id="starRatingChartContainer" class="relative h-72"></div></div>
+                        </div>
+                        <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mt-6"><h3 class="text-xl font-bold text-white mb-4">Top 10 Products (by Sales Qty.)</h3><div id="topModelsChartContainer" class="relative h-80"></div></div>
+                    </div>
+                    <div class="lg:col-span-2">
+                         <div class="chart-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-6"><h3 class="text-xl font-bold text-white mb-4">Stock by Technology</h3><div id="technologyChartContainer" class="relative h-48"></div></div>
+                         <div class="analytics-card bg-slate-800/50 border border-slate-700 rounded-2xl p-6 h-auto">
+                            <h3 class="text-xl font-bold text-white mb-4">Dynamic Insights</h3>
+                            <div id="modelInsightsContainer"><ul id="modelInsightsList" class="space-y-4 text-sm"></ul></div>
+                        </div>
+                    </div>
+                </div>`;
+            
+            if (!response || !response.filters) throw new Error("Invalid response from product analytics endpoint.");
+            
             const { filters } = response;
 
             const populate = (id, options) => {
                 const select = document.getElementById(id);
-                select.innerHTML = '<option value="">All</option>';
-                options.forEach(option => {
-                    const opt = document.createElement('option');
-                    opt.value = option;
-                    opt.textContent = option;
-                    select.appendChild(opt);
-                });
+                if (select) {
+                    select.innerHTML = '<option value="">All</option>';
+                    options.forEach(option => {
+                        if(option) {
+                            const opt = document.createElement('option');
+                            opt.value = option;
+                            opt.textContent = option;
+                            select.appendChild(opt);
+                        }
+                    });
+                }
             };
 
-            const starOptions = ['1', '2', '3', '4', '5'];
-            const technologyOptions = ['Inverter', 'Non Inv'];
-            const tonnageOptions = ['0.8', '0.9', '1', '1.4', '1.5', '1.8', '2.2', '2.6'];
-
-            populate('starSelect', starOptions);
-            populate('technologySelect', technologyOptions);
-            populate('tonnageSelect', tonnageOptions); 
+            populate('starSelect', filters.stars);
+            populate('technologySelect', filters.technologies);
+            populate('tonnageSelect', filters.tonnages);
 
             ['starSelect', 'technologySelect', 'tonnageSelect'].forEach(id => {
-                document.getElementById(id).removeEventListener('change', updateModelsAnalysis);
-                document.getElementById(id).addEventListener('change', updateModelsAnalysis);
+                const el = document.getElementById(id);
+                el.addEventListener('change', updateModelsAnalysis);
+                el.setAttribute('data-listener-added', 'true');
             });
 
             await updateModelsAnalysis();
-        } catch (error) { 
+
+        } catch (error) {
+            console.error("Error building models page:", error);
             setComponentError('models-analytics-container', `Failed to load product analytics page. ${error.message}`);
         }
     }
 
     async function updateModelsAnalysis() {
+        const loadingSpinner = `<div class="placeholder-loading h-full w-full flex items-center justify-center"><p class="text-slate-400">Loading...</p></div>`;
+        const kpiGrid = document.getElementById('modelsKpiGrid');
+        const containers = {
+            tonnage: document.getElementById('tonnageChartContainer'),
+            star: document.getElementById('starRatingChartContainer'),
+            topModels: document.getElementById('topModelsChartContainer'),
+            technology: document.getElementById('technologyChartContainer'),
+            insights: document.getElementById('modelInsightsContainer')
+        };
+        
+        if (kpiGrid) kpiGrid.innerHTML = loadingSpinner.replace('h-full', 'h-24');
+        Object.values(containers).forEach(c => { if(c) c.innerHTML = loadingSpinner; });
+
         try {
             const star = document.getElementById('starSelect').value;
-            let technology = document.getElementById('technologySelect').value;
+            const technology = document.getElementById('technologySelect').value;
             const tonnage = document.getElementById('tonnageSelect').value;
             
-            let products = [];
+            const params = new URLSearchParams({ star, technology, tonnage }).toString();
+            const response = await apiCall(`/sales/product-analytics?${params}`);
+            const products = response.products || [];
+            
+            filteredProductsForExport = products;
 
-            if (technology === 'Inverter') {
-                const params1 = new URLSearchParams({ star, technology: 'Inverter', tonnage }).toString();
-                const params2 = new URLSearchParams({ star, technology: 'H&C Inv', tonnage }).toString();
-
-                const [response1, response2] = await Promise.all([
-                    apiCall(`/sales/product-analytics?${params1}`),
-                    apiCall(`/sales/product-analytics?${params2}`)
-                ]);
-                
-                const productMap = new Map();
-                if (response1 && response1.products) {
-                    response1.products.forEach(p => productMap.set(p.id, p));
-                }
-                if (response2 && response2.products) {
-                    response2.products.forEach(p => productMap.set(p.id, p));
-                }
-                products = Array.from(productMap.values());
-
-            } else {
-                const params = new URLSearchParams({ star, technology, tonnage }).toString();
-                const response = await apiCall(`/sales/product-analytics?${params}`);
-                products = response.products;
-            }
-
-            filteredProductsForExport = products; 
-
-            const kpiGrid = document.getElementById('modelsKpiGrid');
+            // Update KPIs
             kpiGrid.innerHTML = '';
-
             const totalSales = products.reduce((sum, p) => sum + (Number(p.total_sales) || 0), 0);
             const totalStock = products.reduce((sum, p) => sum + (Number(p.total_stock) || 0), 0);
-            const productCount = products.length;
-            
             const kpis = [
-                { t: 'Products in Filter', v: productCount, i: 'M7 7h.01M7 3h5a2 2 0 012 2v5a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2zm0 0v11a2 2 0 002 2h5a2 2 0 002-2V5a2 2 0 00-2-2H7z' },
+                { t: 'Products in Filter', v: products.length, i: 'M7 7h.01M7 3h5a2 2 0 012 2v5a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2zm0 0v11a2 2 0 002 2h5a2 2 0 002-2V5a2 2 0 00-2-2H7z' },
                 { t: 'Total Sales Qty.', v: totalSales.toLocaleString(), i: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7l8 5 8-5' },
                 { t: 'Total Stock', v: totalStock.toLocaleString(), i: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6' }
             ];
@@ -1317,21 +1321,35 @@
                 kpiGrid.appendChild(card);
             });
 
-            const techResponse = await apiCall(`/sales/product-breakdown?groupBy=technology`);
-            const tonnageResponse = await apiCall(`/sales/product-breakdown?groupBy=tonnage`);
-            const starResponse = await apiCall(`/sales/product-breakdown?groupBy=star`);
+            // Restore canvas elements
+            Object.entries(containers).forEach(([key, c]) => {
+                if (c) c.innerHTML = key === 'insights' ? `<ul id="modelInsightsList" class="space-y-4 text-sm"></ul>` : `<canvas id="${key}Chart"></canvas>`;
+            });
 
-            createChart('technologyChart', 'bar', { labels: techResponse.breakdown.map(d => d.category), datasets: [{ label: 'Total Stock', data: techResponse.breakdown.map(d => d.total_stock), backgroundColor: ['#16a34a', '#2563eb', '#ca8a04'] }] }, { indexAxis: 'y', plugins: { legend: { display: false } } });
-            createChart('starRatingChart', 'bar', { labels: starResponse.breakdown.map(d => d.category), datasets: [{ label: 'Total Stock', data: starResponse.breakdown.map(d => d.total_stock), backgroundColor: '#4f46e5' }] }, { indexAxis: 'y', plugins: { legend: { display: false } } });
-            createChart('tonnageChart', 'polarArea', { labels: tonnageResponse.breakdown.map(d => d.category), datasets: [{ data: tonnageResponse.breakdown.map(d => d.total_stock), backgroundColor: ['#db2777', '#f97316', '#16a34a', '#2563eb', '#7c3aed', '#ca8a04'] }] });
-            
-            const topModels = products.sort((a,b) => b.total_sales - a.total_sales).slice(0, 10);
+            const aggregateData = (key) => {
+                const map = new Map();
+                products.forEach(p => {
+                    let category = p[key];
+                    if (key === 'technology' && category === 'H&C Inv') category = 'Inverter';
+                    if (!map.has(category)) map.set(category, { total_stock: 0 });
+                    map.get(category).total_stock += Number(p.total_stock) || 0;
+                });
+                return Array.from(map.entries()).map(([category, data]) => ({ category, total_stock: data.total_stock }));
+            };
+
+            createChart('technologyChart', 'bar', { labels: aggregateData('technology').map(d => d.category), datasets: [{ data: aggregateData('technology').map(d => d.total_stock), backgroundColor: ['#16a34a', '#2563eb', '#ca8a04'] }] }, { indexAxis: 'y', plugins: { legend: { display: false } } });
+            createChart('starRatingChart', 'bar', { labels: aggregateData('star').map(d => d.category), datasets: [{ data: aggregateData('star').map(d => d.total_stock), backgroundColor: '#4f46e5' }] }, { indexAxis: 'y', plugins: { legend: { display: false } } });
+            createChart('tonnageChart', 'polarArea', { labels: aggregateData('tonnage').map(d => d.category), datasets: [{ data: aggregateData('tonnage').map(d => d.total_stock), backgroundColor: ['#db2777', '#f97316', '#16a34a', '#2563eb', '#7c3aed', '#ca8a04'] }] });
+            const topModels = [...products].sort((a, b) => (Number(b.total_sales) || 0) - (Number(a.total_sales) || 0)).slice(0, 10);
             createChart('topModelsChart', 'bar', { labels: topModels.map(p => p.material), datasets: [{ label: 'Sales Qty.', data: topModels.map(p => p.total_sales), backgroundColor: '#f97316' }] }, { indexAxis: 'y' });
-
-        } catch (error) { 
-             setComponentError('models-analytics-container', `Failed to update product analysis. ${error.message}`);
+            
+            animateCards();
+        } catch (error) {
+            console.error("Error updating models analysis:", error);
+            setComponentError('modelsKpiGrid', `Failed to update analysis. ${error.message}`);
         }
     }
+
 
     async function buildPlanningPage() {
         try {
